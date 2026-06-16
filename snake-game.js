@@ -123,3 +123,6 @@ function startGame(){
         checkCollisions();
         drawGames();
     }
+
+
+    
