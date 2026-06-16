@@ -46,3 +46,60 @@ h1{
     line-height: 1.3;
 }
 
+#game-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+canvas{
+    background-color: #000;
+    border: 3px solid #444;
+    background-image: linear-gradient(#222 1px, transparent 1px), linear-gradient(90deg, #222 1px, transparent 1px);
+    background-size: 20px 20px;
+    image-rendering: pixelated ;
+    display: block;
+}
+
+
+#game-over-screen{
+    position:absolute;
+    top:0; left:0; width:100%; height: 100%; 
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+#game-over-text{
+    colour: #ff3333; font-size: 2rem;
+    font-weight: bold; margin-bottom: 10px;
+}
+
+ .reason-text{
+    color: #aaa; 
+    font-size: 0.9rem; 
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 0 10px;
+ }
+
+ #retry-btn{
+    background-color: #444;
+    color:white;
+    border: 2px solid #666;
+    padding: 10px 20px;
+    font-family: inherit;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+ }
+
+ #retry-btn:active{
+    background-color: #666;
+ }
+
+
+ 
