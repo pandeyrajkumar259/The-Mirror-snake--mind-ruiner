@@ -134,22 +134,22 @@ canvas{
     color: #fff;
 }
 
-#UP-BUTTON{
+#btn-up{
     grid-column: 2;
     grid-row: 1;
 }
 
-#LEFT-BUTTON{
+#btn-right{
     grid-column: 1;
     grid-row: 2;
 }
 
-#RIGHT-BUTTON{
+#btn-left{
     grid-column: 3;
     grid-row: 2;
 }
 
-#DOWN-BUTTON{
+#btn-down{
     grid-column: 2;
     grid-row: 3;
 }
