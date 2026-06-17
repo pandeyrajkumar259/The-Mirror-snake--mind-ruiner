@@ -188,12 +188,12 @@ function drawGame(){
 
     ctx.fillStyle="#00a8ff";
     ctx.beginPath();
-    ctx.arc(blueFood.x*gridSize + gridSize/2, blueFood.y*gridSize + gridSize/2-2,0, Math.PI*2);
+    ctx.arc(blueFood.x*gridSize + gridSize/2, blueFood.y*gridSize + gridSize/2, gridSize/2-2,0, Math.PI*2);
     ctx.fill();
 
     ctx.fillStyle="#ff3838";
     ctx.beginPath();
-    ctx.arc(redFood.x*gridSize + gridSize/2, redFood.y*gridSize + gridSize/2, gridSize/2 -2, 0, Math.PI*2);
+    ctx.arc(redFood.x*gridSize + gridSize/2, redFood.y*gridSize + gridSize/2, gridSize/2-2, 0, Math.PI*2);
     ctx.fill();
 }
 
