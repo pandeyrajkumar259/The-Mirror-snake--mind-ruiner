@@ -197,5 +197,24 @@ function drawGame(){
 }
 
 function endGame(reason){
-    isPlaying=false
+    isPlaying=false;
+    clearInterval(gameInterval);
+
+    deathReasonEl.innerText=reason;
+    gameOverScreen.classList.remove("hidden");
+    statusEl.innerText="!!!GAME OVER!!!";
+
+    blueSnake=[{x:5, y:5}];
+    blueDir={x:1, y:0};
+    redSnake=[{x:14, y:14}];
+    redDir={x:-1, y:0};
 }
+
+retryBtn.addEventListener("click",()=>{
+    startGame();
+});
+
+drawGame();
+
+
+
