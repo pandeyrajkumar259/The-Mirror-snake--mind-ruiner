@@ -125,4 +125,50 @@ function startGame(){
     }
 
 
+    function generateFood(type){
+        let newX=Math.floor(Math.random()*tileCount);
+        let newY=Math.floor(Math.floor()*tileCount);
+
+        if (type==="blue"){
+            blueFood={x:newX, y:newY};
+        }else{
+            redFood={x:newX, y: newY};
+        }
+    }
+
+    function checkCollisions(){
+        let bHead=blueSnake[0];
+        let rHead=redSnake[0];
+
+        if (bHead.x<0||bHead.x>=tileCount||bHead.y<0||bHead.y>=tileCount){
+            endGame("Blue snake smashed into the wall!!!");
+            return;
+        }
+
+        if (rHead.x<0||rHead.x>=tileCount||rHead.y<0||rHead.y>=tileCount){
+            endGame("Red snake smashed into the wall!!!");
+            return;
+        }
+
+        for(let i=1;i<blueSnake.length;i++){
+            if(bHead.x===blueSnake[i].x && bHead.y=== blueSnake[i].y){
+                endGame("Blue snake bit its own tail!!!");
+                return;
+            }
+        }
+
+        for(let i=1; i<redSnake.length; i++){
+            if(rHead.x===redSnake[i].x && rHead.y===redSnake[i].y){
+                endGame("Red snake bit its own tail!!!");
+                return;
+            }
+        }
+
+        if(bHead.x===rHead.x && bHead.y===rHead.y){
+            endGame("Head on collision! Both snakes exploded!!!");
+            return;
+        }
+    }
+
+
     
