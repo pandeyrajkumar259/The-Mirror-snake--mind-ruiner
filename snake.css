@@ -1,5 +1,5 @@
 body{
-    background: color #111;
+    background-color: #111;
     color: #ddd;
     font-family:"Courier New", 'Courier New', Courier, monospace;
     margin: 0;
@@ -158,3 +158,6 @@ canvas{
     #d-pad{display: none;}
 }
 
+.hidden{
+    display:none !important;
+}

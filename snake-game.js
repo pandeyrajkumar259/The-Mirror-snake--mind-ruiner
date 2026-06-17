@@ -22,9 +22,9 @@ let redFood={x:10,y:14};
 const scoreEl=document.getElementById("score");
 const statusEl=document.getElementById("status");
 const gameOverScreen=
-Document.getElementById("game-over-screen");
+document.getElementById("game-over-screen");
 const deathReasonEl=
-Document.getElementById("death-reason");
+document.getElementById("death-reason");
 const retryBtn=
 document.getElementById("retry-btn");
 
@@ -35,7 +35,7 @@ switch(e.key){
     case "W":
         changeDirection("up");
     break;
-    case "ArrowDowm":
+    case "ArrowDown":
     case "s":
     case "S":
         changeDirection("down");
@@ -91,6 +91,7 @@ function startGame(){
     scoreEl.innerText=score;
 
     gameInterval=setInterval(updateGame, gameSpeed);
+    drawGame();
     }
 
     function updateGame(){
@@ -107,7 +108,7 @@ function startGame(){
         if (blueHead.x===blueFood.x && blueHead.y===blueFood.y){
             score=score+10;
             scoreEl.innerText=score;
-            generateredFood("blue");
+            generateFood("blue");
         }else {
             blueSnake.pop();
         }
@@ -121,13 +122,13 @@ function startGame(){
         }
 
         checkCollisions();
-        drawGames();
+        drawGame();
     }
 
 
     function generateFood(type){
         let newX=Math.floor(Math.random()*tileCount);
-        let newY=Math.floor(Math.floor()*tileCount);
+        let newY=Math.floor(Math.random()*tileCount);
 
         if (type==="blue"){
             blueFood={x:newX, y:newY};
@@ -176,8 +177,8 @@ function drawGame(){
     ctx.fillRect(0,0, canvas.width,canvas.height);
 
     ctx.fillStyle="#00a8ff";
-    for(let i=0; i<blueSnake;i++){
-        ctx.fillRect(blueSnake[i].x*gridSize, redSnake[i].y*gridSize, gridSize-2, gridSize-2);
+    for(let i=0; i<blueSnake.length;i++){
+        ctx.fillRect(blueSnake[i].x*gridSize, blueSnake[i].y*gridSize, gridSize-2, gridSize-2);
     }
 
     ctx.fillStyle="#ff3838";
