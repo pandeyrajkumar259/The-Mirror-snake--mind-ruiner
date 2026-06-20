@@ -284,7 +284,10 @@ console.log(redSnake);
 console.log(blueFood);
 console.log(redFood);
 
-drawGame();
+function drawGame(){
+    ctx.fillStyle = "lime";
+    ctx.fillRect(100,100,50,50);
+        };
 
 
 
