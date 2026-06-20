@@ -293,31 +293,49 @@ console.log(redFood);
 
 
 
+
 function drawGame(){
 
     ctx.fillStyle="#000";
         ctx.fillRect(0,0,canvas.width,canvas.height);
 
-            console.log("Blue Snake:", blueSnake);
-                console.log("Red Snake:", redSnake);
-                    console.log("Blue Food:", blueFood);
-                        console.log("Red Food:", redFood);
+            // BLUE SNAKE
+                ctx.fillStyle="#00a8ff";
+                    for(let i=0;i<blueSnake.length;i++){
+                            ctx.fillRect(
+                                        blueSnake[i].x * gridSize,
+                                                    blueSnake[i].y * gridSize,
+                                                                gridSize-2,
+                                                                            gridSize-2
+                                                                                    );
+                                                                                        }
 
-                            ctx.fillStyle="lime";
-                                ctx.fillRect(blueSnake[0].x*20, blueSnake[0].y*20, 18, 18);
+                                                                                            // RED SNAKE
+                                                                                                ctx.fillStyle="#ff3838";
+                                                                                                    for(let i=0;i<redSnake.length;i++){
+                                                                                                            ctx.fillRect(
+                                                                                                                        redSnake[i].x * gridSize,
+                                                                                                                                    redSnake[i].y * gridSize,
+                                                                                                                                                gridSize-2,
+                                                                                                                                                            gridSize-2
+                                                                                                                                                                    );
+                                                                                                                                                                        }
 
-                                    if(redSnake && redSnake[0]){
-                                            ctx.fillStyle="red";
-                                                    ctx.fillRect(redSnake[0].x*20, redSnake[0].y*20, 18, 18);
-                                                        }
+                                                                                                                                                                            // BLUE FOOD
+                                                                                                                                                                                ctx.fillStyle="#00ffff";
+                                                                                                                                                                                    ctx.fillRect(
+                                                                                                                                                                                            blueFood.x * gridSize + 4,
+                                                                                                                                                                                                    blueFood.y * gridSize + 4,
+                                                                                                                                                                                                            gridSize - 8,
+                                                                                                                                                                                                                    gridSize - 8
+                                                                                                                                                                                                                        );
 
-                                                            if(blueFood){
-                                                                    ctx.fillStyle="cyan";
-                                                                            ctx.fillRect(blueFood.x*20, blueFood.y*20, 18, 18);
-                                                                                }
-
-                                                                                    if(redFood){
-                                                                                            ctx.fillStyle="yellow";
-                                                                                                    ctx.fillRect(redFood.x*20, redFood.y*20, 18, 18);
-                                                                                                        }
-                                                                                                        }
+                                                                                                                                                                                                                            // RED FOOD
+                                                                                                                                                                                                                                ctx.fillStyle="#ffff00";
+                                                                                                                                                                                                                                    ctx.fillRect(
+                                                                                                                                                                                                                                            redFood.x * gridSize + 4,
+                                                                                                                                                                                                                                                    redFood.y * gridSize + 4,
+                                                                                                                                                                                                                                                            gridSize - 8,
+                                                                                                                                                                                                                                                                    gridSize - 8
+                                                                                                                                                                                                                                                                        );
+                                                                                                                                                                                                                                                                        }
