@@ -265,6 +265,23 @@ function drawGame(){
     ctx.fillStyle="#000";
     ctx.fillRect(0,0,canvas.width,canvas.height);
 
+
+    ctx.strokeStyle="#222";
+    ctx.lineWidth=1;
+
+    for(let i=0;i<=tileCount;i++){
+
+        ctx.beginPath();
+        ctx.moveTo(i*gridSize,0);
+        ctx.lineTo(i*gridSize,canvas.height);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(0,i*gridSize);
+        ctx.lineTo(canvas.width,i*gridSize);
+        ctx.stroke();
+    }
+
     ctx.fillStyle="#00a8ff";
     for(let i=0;i<blueSnake.length;i++){
         ctx.fillRect(
