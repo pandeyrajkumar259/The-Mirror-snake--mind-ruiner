@@ -163,14 +163,14 @@ function startGame(){
         if(type==="blue" && redFood.x===newX && redFood.y===newY) isValid=false;
         if(type==="red" && blueFood.x===newX && blueFood.y===newY) isValid=false;
 
-        } while (!isValid):
+        } while (!isValid);
 
         if(type === "blue"){
          blueFood={x:newX, y:newY};
         } else{
          redFood={x:newX, y:newY};
         }
-    }
+
 
     function checkCollisions(){
         let bHead=blueSnake[0];
@@ -206,7 +206,7 @@ function startGame(){
         }
 
         for(let i=1; i<redSnake.length;i++){
-         if(bHead.x===redSnake[i].x && bHead.y===redSnake[i].y{
+         if(bHead.x===redSnake[i].x && bHead.y===redSnake[i].y){
           endGame("Blue bited Red!🫠");
           return;
          }
