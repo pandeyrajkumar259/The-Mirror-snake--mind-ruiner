@@ -161,8 +161,8 @@ function startGame(){
          if (redSnake[i].x===newX && redSnake[i].y===newY) isValid=false;
         }
 
-        if(type==="blue" && redFood.x===newX && redFood.y===newY) isValid=false;
-        if(type==="red" && blueFood.x===newX && blueFood.y===newY) isValid=false;
+        if(type==="blue" && redFood && redFood.x===newX && redFood.y===newY) isValid=false;
+        if(type==="red" && blueFood && blueFood.x===newX && blueFood.y===newY) isValid=false;
 
         } while (!isValid);
 
@@ -216,14 +216,16 @@ function startGame(){
 
         for(let i=1; i<blueSnake.length; i++){
          if(rHead.x===blueSnake[i].x && rHead.y===blueSnake[i].y){
-        endGame("Red bited Red!🫠");
+             endGame("Red bited Blue!🫠");
+             return;
          }
         }
     }
 
 
 function drawGame(){
-    ctx.clearRect(0,0, canvas.width,canvas.height);
+    ctx.fillStyle="#000";
+    ctx.fillRect(0,0, canvas.width,canvas.height);
 
     ctx.fillStyle="#00a8ff";
     for(let i=0; i<blueSnake.length;i++){
