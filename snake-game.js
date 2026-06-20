@@ -302,4 +302,4 @@ function drawGame(){
     );
 }
 
-drawGame();
+drawGame()
