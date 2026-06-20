@@ -279,6 +279,11 @@ retryBtn.addEventListener("click",()=>{
     startGame();
 });
 
+console.log(blueSnake);
+console.log(redSnake);
+console.log(blueFood);
+console.log(redFood);
+
 drawGame();
 
 
