@@ -1,3 +1,5 @@
+const { isValidElement } = require("react");
+
 const canvas =
 document.getElementById("gameCanvas");
 const ctx =canvas.getContext("2d");
@@ -150,10 +152,23 @@ function startGame(){
         let newX=Math.floor(Math.random()*tileCount);
         let newY=Math.floor(Math.random()*tileCount);
 
-        if (type==="blue"){
-            blueFood={x:newX, y:newY};
-        }else{
-            redFood={x:newX, y: newY};
+        for (let i=0; i<blueSnake.length; i++){
+         if (blueSnake[i].x===newX && blueSnake[i].y===newY) isValid =false;
+        }
+        
+        for (let i=0; i<redSnake.length; i++){
+         if (redSnake[i].x===newX && redSnake[i].y===newY) isValid=false;
+        }
+
+        if(type==="blue" && redFood.x===newX && redFood.y===newY) isValid=false;
+        if(type==="red" && blueFood.x===newX && blueFood.y===newY) isValid=false;
+
+        } while (!isValid):
+
+        if(type === "blue"){
+         blueFood={x:newX, y:newY};
+        } else{
+         redFood={x:newX, y:newY};
         }
     }
 
