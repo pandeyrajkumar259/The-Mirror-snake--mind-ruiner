@@ -284,10 +284,28 @@ console.log(redSnake);
 console.log(blueFood);
 console.log(redFood);
 
-function drawGame(){
-    ctx.fillStyle = "lime";
-    ctx.fillRect(100,100,50,50);
-        };
 
+function drawGame(){
+
+    ctx.fillStyle="#000";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    console.log("Blue Snake:", blueSnake);
+    console.log("Red Snake:", redSnake);
+    console.log("Blue Food:", blueFood);
+    console.log("Red Food:", redFood);
+
+    ctx.fillStyle="lime";
+    ctx.fillRect(blueSnake[0].x*20, blueSnake[0].y*20, 18, 18);
+
+    ctx.fillStyle="red";
+    ctx.fillRect(redSnake[0].x*20, redSnake[0].y*20, 18, 18);
+
+    ctx.fillStyle="cyan";
+    ctx.fillRect(blueFood.x*20, blueFood.y*20, 18, 18);
+
+    ctx.fillStyle="yellow";
+    ctx.fillRect(redFood.x*20, redFood.y*20, 18, 18);
+}
 
 
