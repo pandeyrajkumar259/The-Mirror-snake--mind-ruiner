@@ -115,22 +115,36 @@ function startGame(){
             score=score+10;
             scoreEl.innerText=score;
             generateFood("blue");
-        }else {
-            blueSnake.pop();
+        
         }
         
-        if (redHead.x===redFood.x && redHead.y===redFood.y){
-            score=score+10;
-            scoreEl.innerText=score;
-            generateFood("red");
-        }else {
-            redSnake.pop();
+        else if (blueHead.x===redFood.x && blueHead.y===redFood.y){
+           score=Math.max(0,score-10);
+           scoreEl.innerText=score;
+           if (blueSnake.length>1) blueSnake.pop();
+             generateFood("red");
+           }else{
+             blueSnake.pop();
+             }
+           if (redHead.x===redFood.x && redHead.y===redFood.y){
+             score=score+10;
+             scoreEl.innerText=score;
+             generateFood("red");
+             }
+           else if(redHead.x===blueFood.x && redHead.y===blueFood.y){
+             score=Math.max(0,score-10);
+             scoreEl.innerText=score;
+             if(redSnake.length>1) redSnake.pop();
+             generateFood("blue");
+             } else{
+             redSnake.pop();
+             }
+
+
+
+           checkCollisions();
+           drawGame();
         }
-
-        checkCollisions();
-        drawGame();
-    }
-
 
     function generateFood(type){
         let newX=Math.floor(Math.random()*tileCount);
@@ -174,6 +188,19 @@ function startGame(){
         if(bHead.x===rHead.x && bHead.y===rHead.y){
             endGame("Head on collision! Both snakes exploded!!!");
             return;
+        }
+
+        for(let i=1; i<redSnake.length;i++){
+         if(bHead.x===redSnake[i].x && bHead.y===redSnake[i].y{
+         endGame("Blue bited Red!🫠");
+         return;
+         }
+        }
+
+        for(let i=1; i<blueSnake.length; i++){
+         if(rHead.x===blueSnake[i].x && rHead.y===blueSnake[i].y){
+        endGame("Red bited Red!🫠");
+         }
         }
     }
 
