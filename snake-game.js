@@ -19,6 +19,13 @@ let redDir={x:-1,y:0};
 let blueFood={x:10,y:5};
 let redFood={x:10,y:14};
 
+
+
+console.log("START");
+console.log(redSnake);
+console.log(blueFood);
+console.log(redFood);
+
 const scoreEl=document.getElementById("score");
 const statusEl=document.getElementById("status");
 const gameOverScreen=
@@ -285,27 +292,32 @@ console.log(blueFood);
 console.log(redFood);
 
 
+
 function drawGame(){
 
     ctx.fillStyle="#000";
-    ctx.fillRect(0,0,canvas.width,canvas.height);
+        ctx.fillRect(0,0,canvas.width,canvas.height);
 
-    console.log("Blue Snake:", blueSnake);
-    console.log("Red Snake:", redSnake);
-    console.log("Blue Food:", blueFood);
-    console.log("Red Food:", redFood);
+            console.log("Blue Snake:", blueSnake);
+                console.log("Red Snake:", redSnake);
+                    console.log("Blue Food:", blueFood);
+                        console.log("Red Food:", redFood);
 
-    ctx.fillStyle="lime";
-    ctx.fillRect(blueSnake[0].x*20, blueSnake[0].y*20, 18, 18);
+                            ctx.fillStyle="lime";
+                                ctx.fillRect(blueSnake[0].x*20, blueSnake[0].y*20, 18, 18);
 
-    ctx.fillStyle="red";
-    ctx.fillRect(redSnake[0].x*20, redSnake[0].y*20, 18, 18);
+                                    if(redSnake && redSnake[0]){
+                                            ctx.fillStyle="red";
+                                                    ctx.fillRect(redSnake[0].x*20, redSnake[0].y*20, 18, 18);
+                                                        }
 
-    ctx.fillStyle="cyan";
-    ctx.fillRect(blueFood.x*20, blueFood.y*20, 18, 18);
+                                                            if(blueFood){
+                                                                    ctx.fillStyle="cyan";
+                                                                            ctx.fillRect(blueFood.x*20, blueFood.y*20, 18, 18);
+                                                                                }
 
-    ctx.fillStyle="yellow";
-    ctx.fillRect(redFood.x*20, redFood.y*20, 18, 18);
-}
-
-
+                                                                                    if(redFood){
+                                                                                            ctx.fillStyle="yellow";
+                                                                                                    ctx.fillRect(redFood.x*20, redFood.y*20, 18, 18);
+                                                                                                        }
+                                                                                                        }
