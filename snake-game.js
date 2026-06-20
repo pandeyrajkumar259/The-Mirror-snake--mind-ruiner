@@ -285,7 +285,7 @@ function drawGame(){
         );
     }
 
-    ctx.fillStyle="#00ffff";
+    ctx.fillStyle="#00a8ff";
     ctx.fillRect(
         blueFood.x * gridSize + 4,
         blueFood.y * gridSize + 4,
@@ -293,7 +293,7 @@ function drawGame(){
         gridSize - 8
     );
 
-    ctx.fillStyle="#ffff00";
+    ctx.fillStyle="#ff3838";
     ctx.fillRect(
         redFood.x * gridSize + 4,
         redFood.y * gridSize + 4,
