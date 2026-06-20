@@ -84,6 +84,11 @@ function changeDirection(dir){
 
 function startGame(){
 
+    blueSnake=[{x:5,y:5}];
+    blueDir={x:1,y:0};
+
+    redSnake=[{x:14,y:14}];
+    redDir={x:-1,y:0};
 
     blueFood={x:10,y:5};
     redFood={x:10,y:14};
@@ -112,7 +117,7 @@ function startGame(){
         redSnake.unshift(redHead);
 
         if (blueHead.x===blueFood.x && blueHead.y===blueFood.y){
-            score=score+10;
+            score+=10;
             scoreEl.innerText=score;
             generateFood("blue");
         
@@ -121,30 +126,38 @@ function startGame(){
         else if (blueHead.x===redFood.x && blueHead.y===redFood.y){
            score=Math.max(0,score-10);
            scoreEl.innerText=score;
-           if (blueSnake.length>1) blueSnake.pop();
-             generateFood("red");
-           }else{
+
+           if (blueSnake.length>1){ 
              blueSnake.pop();
-             }
-           if (redHead.x===redFood.x && redHead.y===redFood.y){
-             score=score+10;
-             scoreEl.innerText=score;
-             generateFood("red");
-             }
-           else if(redHead.x===blueFood.x && redHead.y===blueFood.y){
-             score=Math.max(0,score-10);
-             scoreEl.innerText=score;
-             if(redSnake.length>1) redSnake.pop();
-             generateFood("blue");
-             } else{
-             redSnake.pop();
-             }
-
-
-
-           checkCollisions();
-           drawGame();
+           }
+           generateFood("red");
+        
+        }else{
+             blueSnake.pop();
         }
+
+
+        if (redHead.x===redFood.x && redHead.y===redFood.y){
+          score=score+10;
+          scoreEl.innerText=score;
+          generateFood("red");
+
+        }else if(redHead.x===blueFood.x && redHead.y===blueFood.y){
+          score=Math.max(0,score-10);
+          scoreEl.innerText=score;
+
+          if(redSnake.length>1){
+             redSnake.pop();
+          }
+
+          generateFood("blue");
+        } else{
+          redSnake.pop();
+        }
+
+        checkCollisions();
+        drawGame();
+    }
 
     function generateFood(type){
         let newX, newY, isValid;
