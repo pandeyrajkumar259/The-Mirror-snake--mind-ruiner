@@ -1,5 +1,3 @@
-const { isValidElement } = require("react");
-
 const canvas =
 document.getElementById("gameCanvas");
 const ctx =canvas.getContext("2d");
@@ -149,6 +147,9 @@ function startGame(){
         }
 
     function generateFood(type){
+        let newX, newY, isValid;
+        do{
+        isValid=true;
         let newX=Math.floor(Math.random()*tileCount);
         let newY=Math.floor(Math.random()*tileCount);
 
@@ -169,6 +170,7 @@ function startGame(){
          blueFood={x:newX, y:newY};
         } else{
          redFood={x:newX, y:newY};
+        }
         }
 
 
