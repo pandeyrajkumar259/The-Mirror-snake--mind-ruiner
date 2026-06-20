@@ -206,7 +206,7 @@ function startGame(){
         }
 
         for(let i=1; i<redSnake.length;i++){
-         if(bHead.x===redSnake[i].x && bHead.y===redSnake[i].y{
+         if(bHead.x===redSnake[i].x && bHead.y===redSnake[i].y {
          endGame("Blue bited Red!🫠");
          return;
          }
