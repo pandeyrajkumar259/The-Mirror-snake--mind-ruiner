@@ -150,8 +150,8 @@ function startGame(){
         let newX, newY, isValid;
         do{
         isValid=true;
-        let newX=Math.floor(Math.random()*tileCount);
-        let newY=Math.floor(Math.random()*tileCount);
+        newX=Math.floor(Math.random()*tileCount);
+        newY=Math.floor(Math.random()*tileCount);
 
         for (let i=0; i<blueSnake.length; i++){
          if (blueSnake[i].x===newX && blueSnake[i].y===newY) isValid =false;
@@ -223,8 +223,7 @@ function startGame(){
 
 
 function drawGame(){
-    ctx.fillStyle="#000000";
-    ctx.fillRect(0,0, canvas.width,canvas.height);
+    ctx.clearRect(0,0, canvas.width,canvas.height);
 
     ctx.fillStyle="#00a8ff";
     for(let i=0; i<blueSnake.length;i++){
