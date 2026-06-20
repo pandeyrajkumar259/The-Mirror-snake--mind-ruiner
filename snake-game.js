@@ -83,6 +83,11 @@ function changeDirection(dir){
 }
 
 function startGame(){
+
+
+    blueFood={x:10,y:5};
+    redFood={x:10,y:14};
+
     isPlaying=true;
     statusEl.innerText= "Game Running...";
     gameOverScreen.classList.add("hidden");
@@ -90,6 +95,7 @@ function startGame(){
     score=0;
     scoreEl.innerText=score;
 
+    clearInterval(gameInterval);
     gameInterval=setInterval(updateGame, gameSpeed);
     drawGame();
     }
