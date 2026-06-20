@@ -20,12 +20,6 @@ let blueFood={x:10,y:5};
 let redFood={x:10,y:14};
 
 
-
-console.log("START");
-console.log(redSnake);
-console.log(blueFood);
-console.log(redFood);
-
 const scoreEl=document.getElementById("score");
 const statusEl=document.getElementById("status");
 const gameOverScreen=
@@ -134,6 +128,7 @@ function startGame(){
            score=Math.max(0,score-10);
            scoreEl.innerText=score;
 
+           blueSnake.pop();
            if (blueSnake.length>1){ 
              blueSnake.pop();
            }
@@ -153,6 +148,7 @@ function startGame(){
           score=Math.max(0,score-10);
           scoreEl.innerText=score;
 
+          redSnake.pop();
           if(redSnake.length>1){
              redSnake.pop();
           }
@@ -243,30 +239,6 @@ function startGame(){
     }
 
 
-function drawGame(){
-    ctx.fillStyle="#000";
-    ctx.fillRect(0,0, canvas.width,canvas.height);
-
-    ctx.fillStyle="#00a8ff";
-    for(let i=0; i<blueSnake.length;i++){
-        ctx.fillRect(blueSnake[i].x*gridSize, blueSnake[i].y*gridSize, gridSize-2, gridSize-2);
-    }
-
-    ctx.fillStyle="#ff3838";
-    for(let i=0; i<redSnake.length; i++){
-        ctx.fillRect(redSnake[i].x*gridSize, redSnake[i].y*gridSize, gridSize-2, gridSize-2);
-    }
-
-    ctx.fillStyle="#00a8ff";
-    ctx.beginPath();
-    ctx.arc(blueFood.x*gridSize + gridSize/2, blueFood.y*gridSize + gridSize/2, gridSize/2-2,0, Math.PI*2);
-    ctx.fill();
-
-    ctx.fillStyle="#ff3838";
-    ctx.beginPath();
-    ctx.arc(redFood.x*gridSize + gridSize/2, redFood.y*gridSize + gridSize/2, gridSize/2-2, 0, Math.PI*2);
-    ctx.fill();
-}
 
 function endGame(reason){
     isPlaying=false;
@@ -286,56 +258,48 @@ retryBtn.addEventListener("click",()=>{
     startGame();
 });
 
-console.log(blueSnake);
-console.log(redSnake);
-console.log(blueFood);
-console.log(redFood);
-
-
 
 
 function drawGame(){
 
     ctx.fillStyle="#000";
-        ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.fillRect(0,0,canvas.width,canvas.height);
 
-            // BLUE SNAKE
-                ctx.fillStyle="#00a8ff";
-                    for(let i=0;i<blueSnake.length;i++){
-                            ctx.fillRect(
-                                        blueSnake[i].x * gridSize,
-                                                    blueSnake[i].y * gridSize,
-                                                                gridSize-2,
-                                                                            gridSize-2
-                                                                                    );
-                                                                                        }
+    ctx.fillStyle="#00a8ff";
+    for(let i=0;i<blueSnake.length;i++){
+        ctx.fillRect(
+            blueSnake[i].x * gridSize,
+            blueSnake[i].y * gridSize,
+            gridSize-2,
+            gridSize-2
+        );
+    }
 
-                                                                                            // RED SNAKE
-                                                                                                ctx.fillStyle="#ff3838";
-                                                                                                    for(let i=0;i<redSnake.length;i++){
-                                                                                                            ctx.fillRect(
-                                                                                                                        redSnake[i].x * gridSize,
-                                                                                                                                    redSnake[i].y * gridSize,
-                                                                                                                                                gridSize-2,
-                                                                                                                                                            gridSize-2
-                                                                                                                                                                    );
-                                                                                                                                                                        }
+    ctx.fillStyle="#ff3838";
+    for(let i=0;i<redSnake.length;i++){
+        ctx.fillRect(
+            redSnake[i].x * gridSize,
+            redSnake[i].y * gridSize,
+            gridSize-2,
+            gridSize-2
+        );
+    }
 
-                                                                                                                                                                            // BLUE FOOD
-                                                                                                                                                                                ctx.fillStyle="#00ffff";
-                                                                                                                                                                                    ctx.fillRect(
-                                                                                                                                                                                            blueFood.x * gridSize + 4,
-                                                                                                                                                                                                    blueFood.y * gridSize + 4,
-                                                                                                                                                                                                            gridSize - 8,
-                                                                                                                                                                                                                    gridSize - 8
-                                                                                                                                                                                                                        );
+    ctx.fillStyle="#00ffff";
+    ctx.fillRect(
+        blueFood.x * gridSize + 4,
+        blueFood.y * gridSize + 4,
+        gridSize - 8,
+        gridSize - 8
+    );
 
-                                                                                                                                                                                                                            // RED FOOD
-                                                                                                                                                                                                                                ctx.fillStyle="#ffff00";
-                                                                                                                                                                                                                                    ctx.fillRect(
-                                                                                                                                                                                                                                            redFood.x * gridSize + 4,
-                                                                                                                                                                                                                                                    redFood.y * gridSize + 4,
-                                                                                                                                                                                                                                                            gridSize - 8,
-                                                                                                                                                                                                                                                                    gridSize - 8
-                                                                                                                                                                                                                                                                        );
-                                                                                                                                                                                                                                                                        }
+    ctx.fillStyle="#ffff00";
+    ctx.fillRect(
+        redFood.x * gridSize + 4,
+        redFood.y * gridSize + 4,
+        gridSize - 8,
+        gridSize - 8
+    );
+}
+
+drawGame()
