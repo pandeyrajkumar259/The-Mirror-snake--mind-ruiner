@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport"
-        content="width=device-width, initia-scale=1.0, maximum-scale=1.0, user-scalable=no>
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <title>Crazy-Snake-Control</title>
-        <link rel="stylesheet" href="/snake.css">
+        <link rel="stylesheet" href="snake.css">
     </head>
     <body>
         <div class="header-panel">
@@ -19,15 +19,16 @@
         </div>
         <div id= "game-container">
             <canvas id="gameCanvas" width="400" height="400"></canvas>
-            <div id="game-over-screen" class ="hidden">GAME OVER (LOL 😆)
+            <div id="game-over-screen" class ="hidden">
+            <div id="game-over-screen">GAME OVER (LOL 😆)</div>
             <div id="death-reason" class="reason-text">You crashed!🫠</div>
             <button id="retry-btn">RETRY</button>
         </div>
         </div>
         <div id="d-pad">
             <div id="btn-up" class="d-btn">🔼</div>
-            <div id="btn-left" class="d-btn">◀️</div>
-            <div id="btn-right" class="d-btn">▶️</div>
+            <div id="btn-right" class="d-btn">◀️</div>
+            <div id="btn-left" class="d-btn">▶️</div>
             <div id="btn-down" class="d-btn">🔽</div>
         </div>
         <script src="snake-game.js"></script>
